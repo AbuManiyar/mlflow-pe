@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signet-experiments"
+version = "0.1.0"
+description = "Repeatable MLflow experiments for Siamese signature verification"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "kagglehub>=0.3",
+    "matplotlib>=3.8",
+    "mlflow>=2.12",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "Pillow>=10.0",
+    "torch>=2.2",
+    "torchvision>=0.17",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+signet-experiment = "signet_experiments.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["signet_experiments*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
